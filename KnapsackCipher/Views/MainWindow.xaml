@@ -1,0 +1,48 @@
+﻿<Window x:Class="KnapsackCipher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KnapsackCipher"
+        xmlns:ViewModel="clr-namespace:KnapsackCipher.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" FontFamily="Myanmar Text">
+    <Window.DataContext>
+        <ViewModel:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="0,10,0,0">
+            <TextBlock Text="Рюкзачный шифр" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"></TextBlock>
+            <TextBlock Text="Я рюкзак, я рюкзак, я рюкзак, я рюкзак" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Кодирование" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Text="Шифруемый текст" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="5,0,0,0"></TextBlock>
+            <TextBox Margin="5,0,5,10" FontSize="16" Text="{Binding EncodingText }"></TextBox>
+            <Button Content="Выполнить" FontSize="18" Command="{Binding EncodingClick, Mode=OneWay}"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Декодирование" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Text="Декодируемая последовательность" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="5,0,0,0"></TextBlock>
+            <TextBox Margin="5,0,5,10" FontSize="16" Text="{Binding DecodingText}"></TextBox>
+            <Button Content="Выполнить" FontSize="18" Command="{Binding DecodingClick, Mode=OneWay}"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="Результат кодирования" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,33,0,0"></TextBlock>
+            <TextBox Margin="5,0,5,0" FontSize="16" Text="{Binding ResultEncodingText}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBlock Text="Результат декодирования" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,33,0,0"></TextBlock>
+            <TextBox Margin="5,0,5,0" FontSize="16" Text="{Binding ResultDecodingText}"></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>
