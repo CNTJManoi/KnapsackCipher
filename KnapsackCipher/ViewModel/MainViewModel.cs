@@ -35,6 +35,8 @@ namespace KnapsackCipher.ViewModel
                 string result = Knapsack.Perform(EncodingText, Knapsack.Operation.Encrypt);
                 ResultEncodingText = result;
                 DecodingText = result;
+                PublicKey = "";
+                PrivateKey = "";
                 foreach (var item in Knapsack.PublicKey)
                 {
                     PublicKey += item + " ";
