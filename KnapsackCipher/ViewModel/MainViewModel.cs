@@ -19,6 +19,8 @@ namespace KnapsackCipher.ViewModel
         public string DecodingText { get; set; }
         public string ResultEncodingText { get; set; }
         public string ResultDecodingText { get; set; }
+        public string PublicKey { get; set; }
+        public string PrivateKey { get; set; }
         public DelegateCommand EncodingClick => _encodingClick ?? (_encodingClick = new DelegateCommand(Encoding));
 
         public DelegateCommand DecodingClick => _decodingClick ?? (_decodingClick = new DelegateCommand(Decoding));
@@ -33,10 +35,20 @@ namespace KnapsackCipher.ViewModel
                 string result = Knapsack.Perform(EncodingText, Knapsack.Operation.Encrypt);
                 ResultEncodingText = result;
                 DecodingText = result;
+                foreach (var item in Knapsack.PublicKey)
+                {
+                    PublicKey += item + " ";
+                }
+                foreach (var item in Knapsack.PrivateKey)
+                {
+                    PrivateKey += item + " ";
+                }
                 OnPropertyChanged(nameof(DecodingText));
             }
             else ResultEncodingText = "Введите текст!";
             OnPropertyChanged(nameof(ResultEncodingText));
+            OnPropertyChanged(nameof(PublicKey));
+            OnPropertyChanged(nameof(PrivateKey));
         }
         private void Decoding(object obj)
         {
@@ -47,6 +59,8 @@ namespace KnapsackCipher.ViewModel
             }
             else ResultDecodingText = "Введите текст!";
             OnPropertyChanged(nameof(ResultDecodingText));
+            OnPropertyChanged(nameof(PublicKey));
+            OnPropertyChanged(nameof(PrivateKey));
         }
         public event PropertyChangedEventHandler? PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

@@ -37,12 +37,16 @@
             <Button Content="Выполнить" FontSize="18" Command="{Binding DecodingClick, Mode=OneWay}"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="Результат кодирования" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,33,0,0"></TextBlock>
+            <TextBlock Text="Результат кодирования" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,5,0,0"></TextBlock>
             <TextBox Margin="5,0,5,0" FontSize="16" Text="{Binding ResultEncodingText}"></TextBox>
+            <TextBlock Text="Private Key" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,5,0,0"></TextBlock>
+            <TextBox Margin="5,0,5,0" IsReadOnly="True" FontSize="16" Text="{Binding PrivateKey}"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBlock Text="Результат декодирования" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,33,0,0"></TextBlock>
+            <TextBlock Text="Результат декодирования" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,5,0,0"></TextBlock>
             <TextBox Margin="5,0,5,0" FontSize="16" Text="{Binding ResultDecodingText}"></TextBox>
+            <TextBlock Text="Public Key" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5,5,0,0"></TextBlock>
+            <TextBox Margin="5,0,5,0" IsReadOnly="True" FontSize="16" Text="{Binding PublicKey}"></TextBox>
         </StackPanel>
     </Grid>
 </Window>
